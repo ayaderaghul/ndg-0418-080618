@@ -1,0 +1,80 @@
+digraph 901153500 {
+rankdir = LR
+0 [peripheries = 2]
+
+0 [label = "M"]
+0 -> 4 [label = "L"]
+0 -> 0 [label = "M"]
+0 -> 14 [label = "H"]
+
+1 [label = "M"]
+1 -> 8 [label = "L"]
+1 -> 0 [label = "M"]
+1 -> 0 [label = "H"]
+
+2 [label = "M"]
+2 -> 8 [label = "L"]
+2 -> 0 [label = "M"]
+2 -> 5 [label = "H"]
+
+3 [label = "H"]
+3 -> 0 [label = "L"]
+3 -> 6 [label = "M"]
+3 -> 0 [label = "H"]
+
+4 [label = "L"]
+4 -> 4 [label = "L"]
+4 -> 10 [label = "M"]
+4 -> 0 [label = "H"]
+
+5 [label = "H"]
+5 -> 5 [label = "L"]
+5 -> 0 [label = "M"]
+5 -> 8 [label = "H"]
+
+6 [label = "H"]
+6 -> 1 [label = "L"]
+6 -> 6 [label = "M"]
+6 -> 5 [label = "H"]
+
+7 [label = "H"]
+7 -> 0 [label = "L"]
+7 -> 11 [label = "M"]
+7 -> 1 [label = "H"]
+
+8 [label = "L"]
+8 -> 5 [label = "L"]
+8 -> 6 [label = "M"]
+8 -> 4 [label = "H"]
+
+9 [label = "M"]
+9 -> 12 [label = "L"]
+9 -> 10 [label = "M"]
+9 -> 6 [label = "H"]
+
+10 [label = "M"]
+10 -> 4 [label = "L"]
+10 -> 1 [label = "M"]
+10 -> 10 [label = "H"]
+
+11 [label = "H"]
+11 -> 6 [label = "L"]
+11 -> 1 [label = "M"]
+11 -> 1 [label = "H"]
+
+12 [label = "L"]
+12 -> 8 [label = "L"]
+12 -> 10 [label = "M"]
+12 -> 5 [label = "H"]
+
+13 [label = "H"]
+13 -> 8 [label = "L"]
+13 -> 12 [label = "M"]
+13 -> 12 [label = "H"]
+
+14 [label = "L"]
+14 -> 1 [label = "L"]
+14 -> 14 [label = "M"]
+14 -> 14 [label = "H"]
+
+}

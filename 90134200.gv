@@ -1,0 +1,30 @@
+digraph 90134200 {
+rankdir = LR
+0 [peripheries = 2]
+
+0 [label = "M"]
+0 -> 2 [label = "L"]
+0 -> 0 [label = "M"]
+0 -> 4 [label = "H"]
+
+1 [label = "H"]
+1 -> 3 [label = "L"]
+1 -> 2 [label = "M"]
+1 -> 0 [label = "H"]
+
+2 [label = "H"]
+2 -> 2 [label = "L"]
+2 -> 0 [label = "M"]
+2 -> 0 [label = "H"]
+
+3 [label = "H"]
+3 -> 2 [label = "L"]
+3 -> 2 [label = "M"]
+3 -> 3 [label = "H"]
+
+4 [label = "L"]
+4 -> 4 [label = "L"]
+4 -> 1 [label = "M"]
+4 -> 0 [label = "H"]
+
+}
