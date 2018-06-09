@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 
+\usepackage{hyperref}
 
 \title{\textbf{Society in simulation\\
 Cooperation and bargaining behaviors.}}
@@ -72,7 +73,7 @@ However, this work goes deeper into the population for further information. By v
 
 For a brief statement of the result, the more patient the individuals are, the better chance and more varieties the society can get at choosing cooperation. It is not necessarily either full cooperation or full defection. There are certain periods holding a half-heartedly cooperative mode.\\
 
-For the bargaining society, the whole picture is richer because the underlying game has more strategies. Claiming fair and square is the obvious and simplest way. 50-50 division is a desirable outcome. However it is (unfortunately or not) not the only way reality can logically turn out because all the deviations out of that mindset, as would be shown later, occurs naturally from the assumption of individual's fitness. These deviations are due to the struggles to gain advantage in the bargaining process. It wastes resources because if the pie is failed to be shared or if there is still something left on the table, it is considered wasteful resources. However, as a matter of fact, negotiations break down and destructive forces exist. They also take many diverse forms. Regarding the patience level of the individual, I suggest that the higher the willingness to wait, the higher the chance negotiations break down, resources wasted, due to mechanisms such as aggressive claims, prolonged shows of strength, occasional probing and ready retaliations. 
+For the bargaining society, the whole picture is richer because the underlying game has more strategies. Claiming fair and square is the obvious and simplest way. 50-50 division is a desirable outcome. However it is (unfortunately or not) not the only way reality can logically turn out because all the deviations out of that mindset, as would be shown later, occurs naturally from the assumption of individual's fitness. These deviations are due to the struggles to gain advantage in the bargaining process. It wastes resources because if the pie is failed to be shared or if there is still something left on the table, it is considered wasteful resources. However, as a matter of fact, negotiations break down and destructive forces exist. They also take many diverse forms. Regarding the patience level of the individual, I suggest that the higher willingness to wait rationalise a new kind of strategy that increases the chance negotiations break down, resources wasted. These newly stable state involves mechanisms such as aggressive claims, prolonged shows of strength, occasional probing and ready retaliations. 
 
 In my simulation, the character that sustains usually takes the form of a strategy that is provocative initially but retreats to modesty after. It can also occasionally probe. Otherwise the society can hold a mixture of strategies that alternate, flexible, testing and yielding if necessary. Apart from what happens in the inefficient periods, I also am curious about what kinds of strategy that would trigger and facilitate the transitions between equitable and non-equitable phases. In details, what character presences at the brink of collapse of the 50-50 division, what makes it half way, and what makes it raise again etc.\\
 
@@ -742,23 +743,25 @@ Since the approach is mostly the same, I only put here the part that is differen
 
 \section{The game}
 
-The Nash Demand Game is the game of dividing a pie. It is the rudimentary of bargaining behavior. There is a pie of 10 euro to be divided between two players. Each player can make 3 possible claims on the pie: I want a low/ medium/ high portion of the pie. This corresponds to claiming 2 / 5 / 8 euro out of 10. The claims are made simultaneously. If the sum of the claims are compatible (i.e. it is not bigger than the whole 10), each gets what they want. Otherwise, negotiation fails and no one gets anything. Here is the payoff matrix of the game:
+The Nash Demand Game is the game of dividing a pie. It is a rudimentary example of bargaining behavior. There is a pie of 10 euro to be divided between two players. Each player can make 3 possible claims on the pie: I want a low/ medium/ high portion of the pie. This corresponds to claiming 2 / 5 / 8 euro out of 10. The claims are made simultaneously. If the sum of the claims are compatible (i.e. it is not bigger than the whole 10), each gets what they want. Otherwise, negotiation fails and no one gets anything. Here is the payoff matrix of the game:
 
 \begin{table}[h!]
 \center
 \begin{tabular}{l|ccc}
 \textbf{NDG}&Low& Medium&High\\
 \hline
-Low & 2,2 & 2,5& 2,8\\
-Medium & 5,2 & 5,5 &0,0\\
-High & 8,2&0,0&0,0\\
+Low & 2,2 & 2,5& *2,8*\\
+Medium & 5,2 & *5,5* &0,0\\
+High & *8,2*&0,0&0,0\\
 \end{tabular}
-\caption{Nash Demand Game payoff matrix}
+\caption{Nash Demand Game payoff matrix. The stars mark the Nash equilibria.}
 \end{table}
 
 I list some real life examples of the bargaining behavior. It can be the situation between buyer and seller in the market, where they try to divide the distance between the willingness to buy and the willingness to sell. It can be the situation between employer and employee negotiating salary. It can be the situation of claiming natural resources of the earth among conventional nations.\\
 
-A desirable outcome is for the share to be fair. That requires both sides to claim modestly immediately and remain that. This simulation is to explore what can really happens in the setting between the one shot and repeated game. Or, in another manner of speaking, to explore how the behavior changes from myopic to patient players.\\
+The one shot game has 3 pure Nash equilibria (marked in the table) and 1 mixed equilibrium of Low and High strategy. The meaning of this game is that the three pure equilibria are rationally equally viable. It does not matter how the pie is shared, as long as nothing is left or the pie is not wasted, it is considered rationally Pareto. However, the way we see it, there is a perfectly equitable share (which is 5-5) and another type of non-equitable share (which is 8-2 or 2-8). The struggle in the Prisoner's Dilemma is the struggle to achieve a better outcome for the whole society but that outcome is out of Nash's question. (C,C) is not even Nash equilibrium in the first place. Hence the rationale is to try to support that point (C,C) to be stable. Here in the Nash Demand game, all these points are equilibria and they are stable. It is just that there are too many of them and we happen to prefer the equitable share of 5-5 (M-M). That requires both sides to claim modestly immediately and remain that. This simulation is to explore what can really happens in the setting between the one shot and repeated game. Or, in another manner of speaking, to explore how the behavior changes from myopic to patient players.\\
+
+At the end of the simulation result I would solve the game analytically to show how the stability of the 50-50 division is undermined. In brief, switching from the one shot to the repeated setting (i.e. increasing the patience level of the individual in this simulated society) makes the 50-50 division far less stable. The prospect of tomorrow hence the willingness to wait rationalise a new kind of conflict: limited war.\\
 
 \section{Strategy implementation: finite state machine}
 
@@ -1265,7 +1268,7 @@ accommodator  &  199.7 783.8  &  791.7 198.7  & *496.7 496.7    &196.7 786.7*  &
 \begin{figure}[h!]
 \center
 \includegraphics[scale=0.5]{/media/FUN/ndg-0418/dot99/32k.png}
-\caption{At cycle 32000, a tough negotiator.}
+\caption{At cycle 32000, a tough negotiator. Tough 1}
 \end{figure}
 
 Actually, at cycle 32000, the percentage of this machine is 95\% and it raises to 100\% quickly after that.
@@ -1284,7 +1287,7 @@ tough & 492 492* & 795 199  &  0 0  & 0 0  &  786 197  \\
 \begin{figure}[h!]
 \center
 \includegraphics[scale=0.5]{/media/FUN/ndg-0418/dot99/99143500.png}
-\caption{At cycle 43500, another tough negotiator.}
+\caption{At cycle 43500, another tough negotiator. Tough 2}
 \end{figure}
 
 This kind of tough machine takes reign for an incredibly long period, until cycle 99800. Where a mutation happens that starts to reach out to always-medium. From cycle 99800 to 100800, the mutation gives always-medium some point though not enough to destabilise the status quo. At the same time of 100800, another mutation takes place that starts to submit to always-high and exploits accommodator and always-low less. The mutation is make the strategy less aggressive. It starts to play fair with itself, the always-medium, and the accommodator. It plays Low with always-low and gives always-high some more point. All these mutations happening but it is still stable because it still resists always-high. It can be said to be some kind of always-medium.
@@ -1367,13 +1370,13 @@ x& 479.0 479.0&  263.9 198.7&  342.0 491.7&  192.8 771.1*& 250.4 198.3 & 192.8 7
 \caption{At 937500, a window opens for the invasion of always-high.}
 \end{table}
 
-\section{Characteristic evaluation }
+\section{Characteristic evaluation and interpretation}
 
 At this point, I would like to develop a systematic characteristic test. I would try to identify the accommodator, the tough negotiator, the always-medium, and always-high. Also the one that on the face value is fair with itself and fair with always-medium hence it coexists peacefully in the population. But this one is weak and unable to resist invasion. It submits to always-high. It is a compromised strategy.\\
 
 So the story goes that always-high never learns to share equitably with its own kind, but one that learns to do so would have the sufficient condition to form an equilibrium. The necessity criteria is whether that one would be able to resist always-high and always-medium to keep the partnership stable. If it does not fulfil this second criteria, it is compromised, it invites always-high or always-medium into the population. If the compromised is popular enough, and always-high appears through the mutation process, always-high would take over the population. As always-high is in, the best response is always-low or the accommodator kind. This would form a mixture that can be stable but with very low population average. The always-low may eventually mutates a silent branch off the equilibrium path that be fair enough among itself. This leads to a path of the equitable share again if there is another mutation involves fighting off always-high (i.e. the aggressive kind).\\
 
-There are two paths: one is the collapse of the perfectly equitable share. It is made of the compromised kind that in the fair equilibrium does exactly what it is supposed to do hence no one can argue with it but it has the security breach off the equilibrium path that would not be able to resist the invasion of always high. The other path to climb back from chaos to the simple way of life of sharing equitably is made of the accommodator kind (or always-low) who submits to always-high but has a silent branch reaching out to be kind to each other. It needs another mutation that is able to stand up against the aggressors. I suggest that the way back takes more mutations than the way to collapse and that path has a local maximum that stands firmly in the way: the tough negotiator that spends resources on limited war. The conflict does not have to be initially, it can be initiated some time after the initial period. This mechanism sustains a better and more peaceful period than the chaotic one however it is still less ideal than the simple way of claiming 5 immediately and forever.\\
+There are two paths: one is the collapse of the perfectly equitable share. The direct collapse is made of the compromised kind that in the fair equilibrium does exactly what it is supposed to do hence no one can argue with it but it has the security breach off the equilibrium path that would not be able to resist the invasion of always high. However, the population may not fall directly into chaotic mix, it can be handled by a tough strategy which maintains a local maximum that is less than ideal but still far from chaos. This, however, requires another mutation that the strategy grow the ability to be aggressive. The other path to climb back from chaos to the simple way of life of sharing equitably is made of the accommodator kind (or always-low) who submits to always-high but has a silent branch reaching out to be kind to each other. It needs another mutation that is able to stand up against the aggressors. I suggest that the way back takes more mutations than the way to collapse directly and that path has a local maximum that stands stably in the way: the tough negotiator that spends resources on limited war. This mechanism can be highly stable and it provides a reasonable way of channelling conflict which is by waging limited wars. The conflicting period does not have to be initially, it can be initiated some time after the initial period. This mechanism sustains a better and more peaceful period than the chaotic one however it is still less ideal than the simple way of claiming 5 immediately and forever.\\
 
 One demonstration is from the simulation above: from randomness the population starts with an always-medium machine which is able to form an equilibrium with itself because it repels always-high and tough negotiator. This is what happens from cycle 0 to cycle 25000. Then this machine mutates in silent a branch that submits to always-high. We call the new machine a compromised one. It, on face value, acts fair with everyone. However it does not sustain a stable state for the population because it invites always-high. The thing is it is neutral to always-medium hence they coexist at any possible percentage of the population. The population can drift back and forth and once the percentage of this compromised machine is big enough, the population becomes vulnerable toward invasion of always-high. This happens from cycle 25000 to 29000. Once always-high is in, this compromised machine acts as an always-low. The mixture of aggressor and accommodator creates a period of chaotically low population payoff average. Because the match between always-high and the compromised one is fine, the match between the compromised one with itself is fine, but the match between always-high and always-high is zero. This is what happens at cycle 30000. This mixture is actually stable because it has the right mix of always-high. In cycle 31000, the mixture becomes unstable because there is not enough always-high in the population, it starts to be beneficial to be always-high. In cycle 32000, after a period of wasteful resources, the population develops a tough negotiator. The tough negotiator comes from the accommodator that subimts to always-high but fair with itself. It has a plus that it repels both always-medium and always-high. It becomes aggressive. It does not just keep the accommodators at bay, it exploits them. With 4 states, this strategy manages to distinguish all of them, and some other tough machines. Remarkable.\\
 
@@ -1457,7 +1460,7 @@ I report here another run of the same settings, with brief study.
 \caption{One typical run: $\delta$ = 0.99.}
 \end{figure}
 
-Figure a, at cycle 50000, the population achieves maximum payoff average, which means the payoff sequence is 5 everywhere. The machine at work is an always-medium. It has a lot of redundant states due to random mutation, but it starts with a state of playing Medium and whatever the opponent does, it remains in that state. So technically it is an always-medium.
+Figure a, at cycle 50000, the population achieves maximum payoff average, which means the payoff sequence is 5 everywhere. The machine at work is an always-medium. It has a lot of redundant states due to random mutation, but it starts with a state of playing Medium and whatever the opponent does, it remains in that state. So technically it is an always-medium.\\
 
 At cycle 100000, the population continues to maintain the equitable sharing state, however, the mechanism to sustain this equitable state has mutated. 
 
@@ -1475,13 +1478,9 @@ machine       & 642 &    497 & 0& 497 & 497 \\
 \caption{benchmarking}
 \end{table}
 
-From the table, the machine being matched with itself gives payoff 497 which means that it is absolutely equitable with itself. This is not enough to suggest that it has the character of an always-medium. When being matched with the always-low, the always-medium gets the same payoff, but this machine gets 642. In fact, its payoff sequence is 5 5 5 8 5 8 5.. which means that this machine is able to recognise the exploitation opportunity toward the always-low, hence it jumps to claiming aggressively in every other round. Thus resulting in the payaoff sequence of 5 5 5 8 5 8 5..
+From the table, the machine being matched with itself gives payoff 497 which means that it is absolutely equitable with itself. This is not enough to suggest that it has the character of an always-medium. When being matched with the always-low, the always-medium gets the same payoff, but this machine gets 642. In fact, its payoff sequence is 5 5 5 8 5 8 5.. which means that this machine is able to recognise the exploitation opportunity toward the always-low, hence it jumps to claiming aggressively in every other round. Thus resulting in the payaoff sequence of 5 5 5 8 5 8 5.. This machine never retreats from an always-high. It gets 0. But it plays fair and square with always-medium and accommodator. In general, this one has a reasonably accommodating scheme. It would play nice with fair types, learn to exploit a submissive type, but never retreat from an aggressive type. The last one is important because it is the criterion that makes it still stable.\\
 
-This machine never retreats from an always-high. It gets 0. But it plays fair and square with always-medium and accommodator. In general, this one has a reasonably accommodating scheme. It would play nice with fair types, learn to exploit a submissive type, but never retreat from an aggressive type.
-
-At cycle 150000, the machine becomes rigid again. It has many states but most of them play Medium, hence it acts like an always-medium.
-
-At cycle 240000, the population average is down a little bit. The payoff sequence that machines obtain is 2 2 0 0 2 5 5 5... Hence the initial rounds are spent for a series of probes before settling down to the equitable share. It plays Low for 2 rounds, then jumps to High for 2 rounds, then Low again, then fixes it at Medium.
+At cycle 150000, the machine becomes rigid again. It has many states but most of them play Medium, hence it acts like an always-medium. At cycle 240000, the population average is down a little bit. The payoff sequence that machines obtain is 2 2 0 0 2 5 5 5... Hence the initial rounds are spent for a series of probes before settling down to the equitable share. It plays Low for 2 rounds, then jumps to High for 2 rounds, then Low again, then fixes it at Medium.\\
 
 \begin{table}[h!]
 \center
@@ -1494,12 +1493,12 @@ always-high   & 795 &  0  & 0  & \\
 accommodator  &     &     &    & \\
 machine       & 493 &    493 & 199& 488 & 478 \\
 \end{tabular}
-\caption{benchmarking}
+\caption{Benchmarking at 150000}
 \end{table}
 
 This one is always an always-medium, except that it submits to always-high. The down period is not long though.
 
-At 300000
+At 300000, the machine is an almost always medium, it plays the first round aggressive but immediately goes back to play fair.
 
 \begin{table}[h!]
 \center
@@ -1512,17 +1511,14 @@ always-high   & 795 &  0  & 0  & \\
 accommodator  &     &     &    & \\
 machine       & 505 &    488 & 0& 486 & 491 \\
 \end{tabular}
-\caption{benchmarking}
+\caption{Benchmarking at 300000}
 \end{table}
-
-This one is an almost-always-medium, it plays the first round aggressive but immediately goes back to play it fair.
-
-At 350000 it is the same.
 
 At 400000, the machine does pretty well among itself except for the first round, however it does pretty bad against the benchmark set. It does not cooperate with always-medium, does not exploit always-low, does not submit to always-high, does not exploit or resist accommodator.
 
 
 \subsection{$\delta = 0.9$}
+In this section I reduce the patience factor of the individual. The result changes numerically but not qualitatively.
 
 \subsubsection{Simulation 4}
 
@@ -1541,9 +1537,9 @@ From cycle 0 to cycle 9600, the strategy is an always-medium: it plays fair to i
 
 \caption{At 9600, 11100, 34200}
 \end{figure}
-From cycle 10000, there is a mutation that starts to exploit always-low. This mutation does not have any effect because it goes off equilibrium path. From cycle 33300, there is a mutation that starts to submit to always-high. And it exploits always-low less. In other words, it becomes less aggressive. This is dangerous because if it submits to always-high enough, always-high becomes its best response and the strategy loses its stability. However, at 71500, it suddenly exploits always-low again and gives always-high zero payoff. At 112500, it submits to always-high again and exploits always-low less. Finally, at 152800, it submits to always-high enough, and always-high becomes best response. This does not mean that the population average would drop immediately. This mutation makes the population vulnerable toward a hostile invasion. But it stays like that for a long time, waiting for the right mutation. 
+From cycle 10000, there is a mutation that starts to exploit always-low. This mutation does not have any effect because it goes off equilibrium path. From cycle 33300, there is a mutation that starts to submit to always-high. And it exploits always-low less. In other words, it becomes less aggressive. This is dangerous because if it submits to always-high enough, always-high becomes its best response and the strategy loses its stability. However, at 71500, it suddenly exploits always-low again and gives always-high zero payoff. At 112500, it submits to always-high again and exploits always-low less. Finally, at 152800, it submits to always-high enough, and always-high becomes best response. This does not mean that the population average would drop immediately. This mutation makes the population vulnerable toward a hostile invasion. But it stays like that for a long time, waiting for the right mutation. \\
 
-Eventually, at 171200 the population average starts to drop and it drops quickly. In 171500, the population average drops from 50 to 26.3, the reason is that the machine alternates between Medium and High with itself, hence the payoff sequence 5 0 5 0 5 0... However, this machine is not the best response to itself, the always-high is the best response to this machine because it submits to always-high completely. Some time after something similar to always-high appears.
+Eventually, at 171200 the population average starts to drop and it drops quickly. In 171500, the population average drops from 50 to 26.3, the reason is that the machine alternates between Medium and High with itself, hence the payoff sequence 5 0 5 0 5 0... However, this machine is not the best response to itself, the always-high is the best response to this machine because it submits to always-high completely. Some time after something similar to always-high appears.\\
 
 In 172300, the population average is that of everybody playing low. The best response is alway-low. This mixture gives always-medium and always-high zero payoff. It is similar to an always-high strategy. 
 
@@ -1558,59 +1554,85 @@ x& 19.1 19.1  &    72.1 20.0    &   0.1 0.1  &        0 0   &      51.8 14.5   &
 \caption{At 172300, the mixture is an always-high.}
 \end{table}
 
-Notice from the benchmark table that the best response to this mixture would be the tough 2 machine. However, without a tough machine with complicated scheme, the simple always-low is a best response.
+Notice from the benchmark table that the best response to this mixture would be the tough 2 machine. However, without a tough machine with complicated scheme, the simple always-low is a best response.\\
 
-At 172400, the machine does badly among itself because it is too aggressive for its own good. The payoff sequence with itself is 0 0 0 5 0 5 0 5 0... This machine, however, would pair perfectly with an always-low machine.
+At 172400, the machine does badly among itself because it is too aggressive for its own good. The payoff sequence with itself is 0 0 0 5 0 5 0 5 0... This machine, however, would pair perfectly with an always-low machine.\\
 
 At 174500, the population becomes less aggressive, it is more fair toward always-medium hence it appears to be vulnerable to the invasion of always-medium.
-21.4 21.4      22.7 20.0      30.7 39.4*        2 8         23.7 26.7         2 5         7.6 30.4 
-
-But always-medium does not appear, the window closes.
-
-At 175500, it is vulnerable to always-high invasion.
-
-However, around 178400, the population mixture is able to get back to be fair with itself, always-medium and accommodator again. The population payoff average goes back to 47 which is almost perfect. They only waste the first round.
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&21.4 21.4 &     22.7 20.0  &    30.7 39.4*   &     2 8    &     23.7 26.7 &        2 5    &     7.6 30.4\\ 
+\end{tabular}
+\caption{At 174500.}
+\end{table}
+But always-medium does not appear, the window closes. At 175500, it is vulnerable to always-high invasion. However, around 178400, the population mixture is able to get back to be fair with itself, always-medium and accommodator again. The population payoff average goes back to 47 which is almost perfect. They only waste the first round.\\
 
 After some other bad luck mutation that drops the population payoff average further, at 184200 the population achieves something stable.
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&45.5 45.5  &    79.6 20.0   &   1/10 2/5   &     1.4 5.6   &    71.6 18.2  &    3.2 12.8   &   43.2 47.4*\\
+\end{tabular}
+\caption{At 1784200.}
+\end{table}
+If we look at the benchmark table, this one is a tough kind. It is fair enough to itself (except the first round), it exploits completely always-low and accommodator, resists completely always-medium and always-high. It resists the tough 1 machine however, not able to resist the tough 2. It is still a tough kind, though. This tough machine actually sustains a long period of stability for the society. No more chaos when conflict is channelled through limited wars. Around 220400, it has a mutation that reaches out to always-high and at 221000 it is no longer stable.\\
 
-45.5 45.5      79.6 20.0      1/10 2/5        1.4 5.6       71.6 18.2      3.2 12.8       43.2 47.4*
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&45.0 45.0  &   *80.0 20.0 &        0 0    &     11.8 47.2*  &  *72.0 18.0    &  40.5 40.5  &   *45.0 45.0\\
+\end{tabular}
+\caption{At 1784200.}
+\end{table}
+At 228100, the machine mutates to start to be kind with always-medium. However it is still submitting to an aggressive kind (can be always-high but can also be a tough machine like the tough 1). The tough 1 machine never appears. Around 255100, the population payoff average drops further. Here is the payoff sequence between itself: 2 5 5 2 0 2 2 5 0 5 5 5... It is unstable toward always-high and sometimes always-medium or a tough kind but these kinds never appears. At some point the population payoff increases but it is still not stable.\\
 
-If we look at the benchmark table, this one is a tough kind. It is fair enough to itself (except the first round), it exploits completely always-low and accommodator, resists completely always-medium and always-high. It resists the tough 1 machine however, not able to resist the tough 2. It is still a tough kind, though.
+Finally, at 319900, the always-medium is back. It has mutation that exploits always-low but this kind of mutation is not threatening. When one is strong and stable, a new feature of being exploitive probably would not destabilise its own crown. The dangerous mutation is the one that makes it less aggressive. After a very long time, at 685800, the machine grows a branch that starts to submit to always-high. At the same time, it exploits always-low less. This is a bad sign.\\
 
-This tough machine actually sustains a long period of stability for the society. No more chaos. Around 220400, it has a mutation that reaches out to always-high and at 221000 it is no longer stable.
+However, this time the collapse at 711900 is not directly to chaos, it is handled by the local maximum of the tough strategy.
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&*45.5 45.5*   &  46.5 20.0   &   27.2 33.6 &     7.9 31.8   &    38.0 33.5   &  *45.5 45.5* &    40.5 40.5\\
+\end{tabular}
+\caption{At 711900.}
+\end{table}
 
-45.0 45.0     *80.0 20.0         0 0         11.8 47.2*    *72.0 18.0      40.5 40.5     *45.0 45.0
+It is a neutral strategy with tough 1. This payoff is due to the sequence 5 0 5 5 5... It probes at the second round. At 819300 it collapses, it submits to accommodator:  
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&33.2 33.2 &   45.0 20.0  &  30.8 32.8  &   6.4 25.5    & 29.3 47.5*&    8.0 27.4&     6.5 23.6 \\  
+\end{tabular}
+\caption{At 819300.}
+\end{table}
 
-At 228100, the machine mutates to start to be kind with always-medium. However it is still submitting to an aggressive kind (can be always-high but can also be a tough machine like the tough 1).
+The mechanism only becomes stable at 827400: 
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cccccccc}
+\textbf{0.99}& x & always-low & always-medium & always-high & accommodator &tough 1 & tough 2\\
+\hline
+x&  45.9 45.9*&   48.8 20.0  &  43.8 45.9* &   4.2 17.0 &   24.3 38.6&    11.9 29.7 &    7.2 24.6\\  
+\end{tabular}
+\caption{At 827400.}
+\end{table}
 
-The tough 1 machine never appears.
-
-Around 255100, the population payoff average drops further. Here is the payoff sequence between itself: 2 5 5 2 0 2 2 5 0 5 5 5... It is unstable toward always-high and sometimes always-medium or a tough kind but these kinds never appears. At some point the population payoff increases but it is still not stable.
-
-Finally, at 319900, the always-medium is back. It has mutation that exploits always-low but this kind of mutation is not threatening. When one is strong and stable, a new feature of being exploitive probably would not destabilise its own crown. The dangerous mutation is the one that makes it less aggressive. After a very long time, at 685800, the machine grows a branch that starts to submit to always-high. At the same time, it exploits always-low less. This is a bad sign.
-
-However, this time the collapse at 711900 is not to chaos, it is cushioned by the middle local maximum of the tough strategy.
-
-*45.5 45.5*     46.5 20.0      27.2 33.6      7.9 31.8       38.0 33.5     *45.5 45.5*     40.5 40.5
-
-It is a neutral strategy with tough 1. This payoff is due to the sequence 5 0 5 5 5... It probes at the second round.
-
-At 
-819300 it collapses, it submits to accommodator 1:  33.2 33.2    45.0 20.0    30.8 32.8     6.4 25.5    29.3 47.5*    8.0 27.4     6.5 23.6   
-then always-medium
-
-it only becomes stable 
-
-827400, 2:  45.9 45.9*   48.8 20.0    43.8 45.9*    4.2 17.0    24.3 38.6    11.9 29.7     7.2 24.6  
-
-This payoff is due to the sequence 5 5 0 5 5 5 5.... It probes at the third round.
-
-
-Overall, the tough strategy is able to probe at different round, not just the first one.
-
-
+This payoff is due to the sequence 5 5 0 5 5 5 5.... It probes at the third round. Overall, the tough strategy is able to probe at different round, not just the first one. And limited war is a local maximum we can rationally reach for in the time of crisis.
 
 \subsubsection{Simulation 4 b}
+
+I continue the simulation from the previous one and plot it here. Only the cycle is reset. We can safely assume the similar pattern with similar underlying story.
 
 \begin{figure}[h!]
 \center
@@ -1618,8 +1640,8 @@ Overall, the tough strategy is able to probe at different round, not just the fi
 \caption{$\delta$ = 0.9 the sequel}
 \end{figure}
 
-
 \subsection{$\delta = 0.8$}
+When I reduce the patience level of the individual further, the frequency of the troublesome period reduces.
 
 \subsubsection{Simulation 5}
 
@@ -1667,6 +1689,7 @@ accommodator  &     &     &  & \\
 
 
 \section{Myopic players}
+When the patience level of the individual homogeneously drops to 0.5, there is virtually no more ground for conflict. People just do not have time and virtue for that.
 
 \subsection{$\delta = 0.5$}
 
@@ -1680,6 +1703,158 @@ accommodator  &     &     &  & \\
 
 \section{Conclusion}
 
+For impatient players (i.e. in the one shot Nash Demand game), the equitable share is highly stable. The mixture of claiming Low and High can theoretically stable, too because it is a mix equilibirum. However, in the replicator dynamics, the 50-50 division has so much larger basin of attraction. \\
+
+When the virtue of patience increases, as shown in my simulation, it reduces the frequency of a perfectly equitable solution. However, it increases the appreciation for conflict in the form of limited war instead of going all for a chaotic mixture between unequals: the aggressor and the submitted party. \\
+
+\begin{figure}
+\center
+\includegraphics[scale=0.6]{/home/chi/Google" "Drive/phd-tesi/mutation-cycle.png}
+\caption{The mutation cycle of strategies: always-medium $->$ compromised $->$ mutates to be fair with its own kind $->$ learns to be aggressive $->$ tough strategy $->$ always-medium.}
+\end{figure}
+
+
+To brief conclude, the perfectly equitable share maintained by an always-medium strategy has a mutation that leads directly to the collapse into the stable chaotic mix. And the way back takes two mutations: one to be fair to our own kind and one to fight off the aggressive reign. More than that, the way back has a local maximum that is sustained by the tough negotiating mechanism: one that involves a series of probes, retaliation, strength demonstration, apology etc before the settling down of peace. This one, though less than ideal, is still something in better reach compared to a violently fluctuate state.\\
+
+
+
+
+\section{Theoretical foundation}
+
+\subsection{One shot Nash Demand game}
+
+Let's solve the one shot Nash Demand game analytically.
+
+
+\begin{table}
+\center
+\begin{tabular}{l|ccc}
+\textbf{NDG}&High& Medium&Low\\
+\hline
+High & 0,0 & 0,0& 8,2\\
+Medium & 0,0 & 5,5 &5,2\\
+Low & 2,8&2,5&2,2\\
+\end{tabular}
+\caption{Nash Demand Game payoff matrix}
+\end{table}
+
+Let a population play the one shot NDG. Denote the fractions of the population playing Low, Medium and High to be $p_L, p_M$ and $1-p_L-p_M$. Given that, the expected payoff of playing Low in this population state will be:
+
+$ EP_L = 
+\begin{pmatrix}
+  2 & 2 & 2 \\
+ \end{pmatrix}
+$
+$
+\begin{pmatrix}
+  1-p_L-p_M \\
+  p_M\\
+  p_L
+ \end{pmatrix}
+$
+= 2\\
+
+
+The expected payoff of playing Medium in this population state will be:
+
+$
+EP_M = 
+\begin{pmatrix}
+  0 & 5 & 5 \\
+ \end{pmatrix}
+$
+$
+\begin{pmatrix}
+  1-p_L-p_M \\
+  p_M\\
+  p_L
+ \end{pmatrix}
+$
+= $5p_M + 5p_L$\\
+
+
+The expected payoff of playing High in this population state will be:
+
+$
+EP_H =
+\begin{pmatrix}
+  0 & 0 & 8 \\
+ \end{pmatrix}
+$
+$
+\begin{pmatrix}
+  1-p_L-p_M \\
+  p_M\\
+  p_L
+ \end{pmatrix}
+$
+= $8p_L$\\
+
+\begin{table}[h!]
+\center
+\begin{tabular}{l|ccc|c}
+\textbf{NDG}&$1-p_L-p_M$& $p_M$&$p_L$&Expected Payoff of Row player\\
+\hline
+High & 0 & 0& 8&$8p_L$\\
+Medium & 0 & 5 &5&$5p_M+5p_L$\\
+Low & 2&2&2&2\\
+\end{tabular}
+\caption{Expected Payoff of playing High, Medium, Low in a population}
+\end{table}
+
+Given these expected payoffs (Table 2.2), playing Low will be a best response when:
+
+$
+\begin{cases} 
+EP_L > EP_M \\ 
+EP_L > EP_H 
+\end{cases}
+=>
+\begin{cases}
+2 > 5p_M + 5p_L \\
+2 > 8p_L 
+\end{cases}
+=> 
+\begin{cases}
+2/5 >p_M + p_L \\
+1/4 > p_L
+\end{cases}
+$\\
+
+Playing Medium is best response when:
+
+$
+\begin{cases}
+EP_M > EP_L\\
+EP_M > EP_H 
+\end{cases}
+=>
+\begin{cases}
+5p_M+5p_L>2\\
+5p_M+5p_L > 8p_L 
+\end{cases}
+=> 
+\begin{cases}
+p_M+p_L>2/5\\
+5p_M>3p_L
+\end{cases}
+$\\
+
+Playing High is best response when:
+
+$
+\begin{cases}
+EP_H > EP_L\\
+EP_H > EP_M 
+\end{cases}
+=>
+\begin{cases}
+p_L>1/4\\
+5p_M < 3p_L 
+\end{cases}
+$\\
+
+We plot these systems of inequalities on Oxy with Ox being $p_L$, Oy being $p_M$ as in Figure 2.1a. The graph shows 3 regions of population states in which it's best to play Low, Medium and High. Figure 2.1b shows the replicator dynamics of the one-shot NDG.
 
 
 
@@ -1688,6 +1863,37 @@ accommodator  &     &     &  & \\
 
 
 
+
+
+
+
+
+
+
+In evolutionary game theory, we will look for the "robust rest point of a dynamics" \cite{vega} which is equivalent to the equilibrium in classical game theory. Technically, all corners of a replicator dynamics are rest points but they are not meaningful. In each of these corners, there are at least 2 idle strategies which are played by no one. For example, at $p_L=1$, the whole population is playing Low and no agent plays Medium and High which means that $p_M=p_H=0$. Because the replicator dynamics doesn't have any ways to bear new strategies, the population state will rest at that point forever. Therefore these are rest points just due to a technical reason, they are not in our interest.
+
+There are 3 rest points of the dynamics that are interesting (marked in Figure 2.1a). Point 3 corresponds to the state of population that all agents playing Medium. Point 2 is the completely mixed state of playing High, Medium and Low at the ratio $\frac{3}{5}$:$\frac{3}{20}$:$\frac{1}{4}$. Point 1 is the mixed between High and Low strategy at the ratio $\frac{3}{4}$:$\frac{1}{4}$. At point 1 and 2, all agents get payoff of 2. 
+However, point 2 has zero basin of attraction. It takes just one mistake for the population state to fall into the basin of attraction of another point. The basin of attraction of point 1 is small, it takes some mistakes simultaneously and the population will fall into the trajectory of another state (point 3). In contrast, the basin of attraction of the Medium equilibrium is very large and nearly impossible to escape by mistaking. It takes enormous number of people making mistakes simultaneously in order to jump out of point 3's basin of attraction. 
+
+Figure 2.2 is the evolution of population state that we simulate. It approximates the theoretical prediction quite well.
+
+
+\subsection{Repeated Nash Demand game}
+
+Now I increase the patience of all individuals in the society homogeneously, say, at the extreme $\delta = 0.99$. I would use the new strategies found in the simulation to represent an interesting set of strategies: always-low/compromised/accommodator, always-medium, always-high, tough strategy. The compromised strategy that collapses the 50-50 division norm can take three forms: the always-low, the accommodator or the compromised. The thing they have in common is that they all have a branch that submits to aggressive type (such as always-high - the most aggressive of them all). Always-low has only one state of playing Low. The accommodator, besides the state of submitting to aggressive claims, has another state of being able to exploit when it recognises a submissive type (such as always-low). This mutation is not dangerous to the collapsing of good norm, it actually fortifies because if you are already tough and aggressive, it does not shake the status quo if you grow a silent branch of being exploitive. The compromised one is an always-medium that grows a branch of going low if the opponent goes high. They all have the common branch of reaching out toward an aggressive kind.
+
+Here are the strategies I would use as representatives:
+
+\begin{figure}
+\center
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/L.png}
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/Co.png}
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/A.png}\\
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/H.png}
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/M.png}
+\includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/T2.png}
+\caption{Always-low, Compromised, Accommodator. And always-medium, always-high, tough 2.}
+\end{figure}
 
 
 
