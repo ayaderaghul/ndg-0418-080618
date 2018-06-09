@@ -79,34 +79,39 @@
              (hash 0 (state 0 (hash 0 2 1 1 2 0))
                    1 (state 1 (hash 0 2 1 1 2 0))
                    2 (state 2 (hash 0 2 1 1 2 0)))))
+
+(define (C)
+  (automaton (hash 'INIT 1 'PAY 0)
+             (hash 0 (state 0 (hash 0 1 1 1 2 0))
+                   1 (state 1 (hash 0 1 1 1 2 0)))))
+                
 (define (T1)
-(automaton
- '#hash((PAY . 0) (INIT . 0))
- (hash
-  1
-  (state 2 '#hash((1 . 1) (2 . 3) (0 . 2)))
-  3
-  (state 1 '#hash((1 . 3) (2 . 2) (0 . 1)))
-  2
-  (state 2 '#hash((1 . 1) (2 . 2) (0 . 2)))
-  0
-  (state 1 '#hash((1 . 1) (2 . 1) (0 . 1))))))
+  (automaton
+   '#hash((PAY . 0) (INIT . 0))
+   (hash
+    1
+    (state 2 '#hash((1 . 1) (2 . 3) (0 . 2)))
+    3
+    (state 1 '#hash((1 . 3) (2 . 2) (0 . 1)))
+    2
+    (state 2 '#hash((1 . 1) (2 . 2) (0 . 2)))
+    0
+    (state 1 '#hash((1 . 1) (2 . 1) (0 . 1))))))
 
 (define (T2)
-(automaton
- '#hash((PAY . 0) (INIT . 1))
- (hash
-  1
-  (state 2 '#hash((1 . 1) (2 . 3) (0 . 2)))
-  3
-  (state 1 '#hash((1 . 3) (2 . 4) (0 . 1)))
-  2
-  (state 2 '#hash((1 . 1) (2 . 2) (0 . 2)))
-  0
-  (state 1 '#hash((1 . 1) (2 . 1) (0 . 1)))
-  4
-  (state 2 '#hash((1 . 4) (2 . 4) (0 . 3))))))
-
+  (automaton
+   '#hash((PAY . 0) (INIT . 1))
+   (hash
+    1
+    (state 2 '#hash((1 . 1) (2 . 3) (0 . 2)))
+    3
+    (state 1 '#hash((1 . 3) (2 . 4) (0 . 1)))
+    2
+    (state 2 '#hash((1 . 1) (2 . 2) (0 . 2)))
+    0
+    (state 1 '#hash((1 . 1) (2 . 1) (0 . 1)))
+    4
+    (state 2 '#hash((1 . 4) (2 . 4) (0 . 3))))))
 
 
 ;; IMMUTABLE MUTATION
@@ -301,6 +306,10 @@
 
 (define (create-matrix au)
   (define ls (cons au BENCHMARKS))
+  (for/list ([i (in-list ls)])
+    (interact-g i ls)))
+
+(define (create-matrix-l ls)
   (for/list ([i (in-list ls)])
     (interact-g i ls)))
 

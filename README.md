@@ -47,3 +47,8 @@ todos:
 
 - plot personality test
 
+9/6/18
+
+- testing the 4 machine representative set
+
+- run the rep 
