@@ -51,3 +51,4 @@ todos:
 
 - testing the 4 machine representative set
 
+- run the rep 

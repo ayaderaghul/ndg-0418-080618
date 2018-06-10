@@ -1,5 +1,5 @@
 #lang racket
-(require "auto.rkt" "inout.rkt" "cons.rkt")
+(require "auto.rkt" "inout.rkt" "cons.rkt" "plot.rkt")
 (require racket/hash)
 ;;(require racket/future)
 (provide (all-defined-out))
