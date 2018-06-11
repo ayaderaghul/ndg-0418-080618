@@ -1,6 +1,8 @@
 #lang racket
 (require racket/hash plot)
-(require "auto.rkt" "main.rkt" "inout.rkt")
+
+(require "auto.rkt" "main.rkt" "inout.rkt" "cons.rkt")
+
 (provide (all-defined-out))
 
 (define (generate-population t m c)
@@ -18,24 +20,24 @@
 
 (define TESTS
   (list
-   (list 50 50 100)
-   (list 50 150 100)
-   (list 50 250 100)
-   
+   (list 100 100 100)
+   (list 100 200 100)
+   (list 100 300 100)
+
+   (list 100 400 100)
    (list 200 100 100)
    (list 200 200 100)
-   (list 400 200 100)
    
-   (list 900 50 50)
-   (list 800 150 50)
-   (list 700 250 50)
-   
-   (list 700 50 100)
-   (list 600 200 100)
+   (list 200 300 100)
+   (list 300 300 100)
+   (list 300 400 100)
+  
+   (list 300 500 100)
+   (list 400 500 50)
    (list 400 400 100)
    ))
-(define FILES
-  (list "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11"))
+
+(define REP (gen-name-rep LOCATION 2 "rep.png"))
 
 (define (evolve-t population cycles speed coor-file)
   (cond
@@ -48,19 +50,22 @@
     (define p4 (vector-map reset p3))
     (evolve-t p4 (- cycles 1) speed coor-file)]))
 
-(define (plot-rep)
+(define (plot-rep files)
   (define lines-list
-    (for/list ([i (in-list FILES)])
+    (for/list ([i (in-list files)])
       (lines (input->coors (csvfile->list i)))))
   (plot lines-list #:x-min 0 #:x-max 1000 #:y-min 0 #:y-max 1000 
         #:x-label "pT" #:y-label "pM" #:title "replicator dynamics: NDG"
-        #:out-file "rep.png"
+        #:out-file REP
         ))
-
+(define T (list 0 1 2 3 4 5 6 7 8))
+(define FILES
+  (for/list ([i (in-list T)])
+    (gen-name-rep LOCATION 2 (number->string i))))
 (define (main)
   (collect-garbage)
-  (for (;[t (in-list TESTS)]
-        [i (in-list (list 0 1 2 3 4 5 6 7 8 9 10 11))])
+  (for ([i (in-list T)]
+        [n (in-list FILES)])
     (define pop (apply generate-population (list-ref TESTS i)))    
-    (evolve-t pop 800 10 (number->string i)))
-  (plot-rep))
+    (evolve-t pop 1000 10 n))
+  (plot-rep FILES))

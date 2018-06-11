@@ -7,8 +7,10 @@
 (define N 100)
 (define CYCLES 500) ;; careful, you change the cycles here
 (define SPEED 10)
-(define ROUNDS 500) ;; not here
-(define DELTA .99)
+
+(define ROUNDS 800) ;; not here
+(define DELTA .999)
+
 (define DELTAstr (string-trim (number->string (* DELTA 100)) ".0"))
 (define MUTATION 2) ;; 3x3 game needs more mutation
 
@@ -32,6 +34,10 @@
   (format "~a~a~a~a"
 	(if (= location 1) OUTLABstr "")
           DELTAstr (number->string id) name))
+(define (gen-name-rep location id name)
+  (format "~a~a~a/~a"
+          (if (= location 1) OUTLABstr "")
+          "rep-tm-" (number->string id) name))
 
 (define (gen-pic-title)
   (format "ID = ~s, N = ~s, s = ~s, r = ~s, d = ~s, m = ~s" SIM-ID N SPEED ROUNDS DELTA MUTATION))
